@@ -1,9 +1,9 @@
-import OpacityCarousal from "./components/carousals/OpacityCarousal";
+import ImageViewer from "./components/ImageViewer";
 
 const App = () => {
   return (
     <div>
-      <OpacityCarousal />
+      <ImageViewer />
     </div>
   );
 };

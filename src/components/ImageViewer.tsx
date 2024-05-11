@@ -164,21 +164,19 @@ const ImageViewer = () => {
                 variant="contained"
                 color="primary"
                 onClick={() => {
-                  setDisplayedImages({
-                    prevCount: displayedImages.prevCount - 1,
-                    nextCount: displayedImages.nextCount - 1,
-                  });
+                  setCurrentImage(currentImage - 1);
+                  if (currentImage === displayedImages.prevCount) {
+                    setDisplayedImages({
+                      prevCount: displayedImages.prevCount - 1,
+                      nextCount: displayedImages.nextCount - 1,
+                    });
+                  }
                 }}
-                disabled={displayedImages.prevCount === 0}
+                disabled={currentImage === 0}
               >
                 Prev
               </Button>
-              <div
-                className="grid grid-cols-4 gap-4 overflow-hidden col-span-4"
-                // style={{
-                //   gridTemplateColumns: `repeat(${numImagesPerPage}, 1fr)`,
-                // }}
-              >
+              <div className="grid grid-cols-4 gap-4 overflow-hidden col-span-4">
                 {viewerImages
                   .slice(displayedImages.prevCount, displayedImages.nextCount)
                   .map((img, i) => (
@@ -218,12 +216,19 @@ const ImageViewer = () => {
                 variant="contained"
                 color="primary"
                 onClick={() => {
-                  setDisplayedImages({
-                    prevCount: displayedImages.prevCount + 1,
-                    nextCount: displayedImages.nextCount + 1,
+                  console.log({
+                    currentImage,
+                    viewerImages: viewerImages.length,
                   });
+                  setCurrentImage(currentImage + 1);
+                  if (currentImage === displayedImages.nextCount - 1) {
+                    setDisplayedImages({
+                      prevCount: displayedImages.prevCount + 1,
+                      nextCount: displayedImages.nextCount + 1,
+                    });
+                  }
                 }}
-                disabled={displayedImages.nextCount === viewerImages.length}
+                disabled={currentImage + 1 === viewerImages.length}
               >
                 Next
               </Button>
