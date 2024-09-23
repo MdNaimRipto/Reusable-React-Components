@@ -1,9 +1,9 @@
-import ImageViewer from "./components/ImageViewer";
+import Masonry from "./components/Masonry";
 
 const App = () => {
   return (
     <div>
-      <ImageViewer />
+      <Masonry />
     </div>
   );
 };
