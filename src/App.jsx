@@ -1,11 +1,7 @@
-import Masonry from "./components/Masonry";
+import ScrollPageByGrabbing from "./components/ScrollPageByGrabbing";
 
 const App = () => {
-  return (
-    <div>
-      <Masonry />
-    </div>
-  );
+  return <ScrollPageByGrabbing />;
 };
 
 export default App;
